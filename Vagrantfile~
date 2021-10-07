@@ -1,0 +1,25 @@
+Vagrant.configure("2") do |config|
+	config.vm.define :servidorVM3 do |servidorVM3|
+	   servidorVM3.vm.box = "bento/centos-7.9"
+       servidorVM3.vm.network :public_network, bridge: "Realtek 8822CE Wireless LAN 802.11ac PCI-E NIC"
+	   servidorVM3.vm.network :private_network, ip: "209.191.60.2"
+       servidorVM3.vm.network :forwarded_port, guest: 443, host:5568
+	   servidorVM3.vm.hostname = "servidorVM3"
+	   servidorVM3.vm.box_download_insecure = true
+	end
+	config.vm.define :firewallVM1 do |firewallVM1|
+	  firewallVM1.vm.box = "bento/centos-7.9"
+      firewallVM1.vm.network :public_network, bridge: "Realtek 8822CE Wireless LAN 802.11ac PCI-E NIC"
+	  firewallVM1.vm.network :private_network, ip: "209.191.60.3"
+	  firewallVM1.vm.network :private_network, ip: "192.168.60.5"
+	  firewallVM1.vm.hostname = "firewallVM1"
+	  firewallVM1.vm.box_download_insecure = true
+	end
+	config.vm.define :servidorVM2 do |servidorVM2|
+	  servidorVM2.vm.box = "bento/centos-7.9"
+      servidorVM2.vm.network :public_network, bridge: "Realtek 8822CE Wireless LAN 802.11ac PCI-E NIC"
+	  servidorVM2.vm.network :private_network, ip: "192.168.60.4"
+ 	  servidorVM2.vm.hostname = "servidorVM2"
+	  servidorVM2.vm.box_download_insecure = true
+	end
+end

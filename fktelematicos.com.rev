@@ -1,0 +1,14 @@
+$ORIGIN 50.168.192.in-addr.arpa.
+$TTL 3H
+@       IN SOA  servidor2.fktelematicos.com.    root@fktelematicos.com. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+@       IN      NS      servidor3.fktelematicos.com.
+@       IN      NS      servidor2.fktelematicos.com.
+@       IN      NS      firewall.fktelematicos.com.
+2       IN      PTR     servidor3.fktelematicos.com.
+4       IN      PTR     servidor2.fktelematicos.com.
+3       IN      PTR     firewall.fktelematicos.com.
